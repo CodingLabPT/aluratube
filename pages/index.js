@@ -13,7 +13,7 @@ function HomePage() {
         <>
             <CSSReset />
             <div style={estilos}>
-
+                <Menu></Menu>
                 <Header></Header>
                 <TimeLine playlists={config.playlists}>
                     conteudo
