@@ -7,14 +7,13 @@ import { StyledTimeline } from "../src/components/Timeline";
 function HomePage() {
 
     const estilos = { 
-
     }; 
 
     return (
         <>
             <CSSReset />
             <div style={estilos}>
-                <Menu></Menu>
+
                 <Header></Header>
                 <TimeLine playlists={config.playlists}>
                     conteudo
