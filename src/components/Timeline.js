@@ -45,3 +45,33 @@ export const StyledTimeline = styled.div`
     }
   }
 `;
+
+function TimeLine(props) {
+  const playlistsNames = Object.keys(props.playlists);
+  return (
+      <StyledTimeline>
+          {playlistsNames.map(function(playlistsName) {
+              const videos = props.playlists[playlistsName];
+              return (
+                  <section>
+                      <h2>{playlistsName}</h2>
+                      <div>
+                          {videos.map((video) => {
+                              return (
+                                  <a href={video.url}>
+                                      <img src={video.thumb} />
+                                      <span>
+                                          {video.title}
+                                      </span>
+                                  </a>
+                              )
+                          })}
+                      </div>
+                  </section>
+                  )
+          })}
+      </StyledTimeline>
+  )
+}
+
+export default TimeLine
