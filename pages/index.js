@@ -1,4 +1,5 @@
 import config from "../config.json";
+import React from "react";
 
 import { CSSReset } from "../src/components/CSSReset";
 import { StyledHeader } from "../src/components/Header";
@@ -8,15 +9,17 @@ import Banner from "../src/components/Banner";
 import TimeLine from "../src/components/Timeline";
 
 function HomePage() {
-   
+
+    const [valorDoFiltro, setValorDoFiltro] = React.useState("Angular");
+
     return (
         <>
             <CSSReset />
             <div>
-                <Menu></Menu>
+                <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro}></Menu>
                 <Banner banner={config.Banner}></Banner>
                 <Header></Header>
-                <TimeLine playlists={config.playlists}>
+                <TimeLine searchValue={valorDoFiltro} playlists={config.playlists}>
                 </TimeLine>
             </div>
         </>
