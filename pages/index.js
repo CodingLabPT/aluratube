@@ -1,5 +1,6 @@
 import config from "../config.json";
 import React from "react";
+import { useState } from "react";
 
 import { CSSReset } from "../src/components/CSSReset";
 import { StyledHeader } from "../src/components/Header";
@@ -10,11 +11,9 @@ import TimeLine from "../src/components/Timeline";
 
 function HomePage() {
 
-    const [valorDoFiltro, setValorDoFiltro] = React.useState("Angular");
-
+    const [valorDoFiltro, setValorDoFiltro] = useState("");
     return (
         <>
-            <CSSReset />
             <div>
                 <Menu valorDoFiltro={valorDoFiltro} setValorDoFiltro={setValorDoFiltro}></Menu>
                 <Banner banner={config.Banner}></Banner>
