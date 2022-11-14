@@ -16,6 +16,9 @@ function useForm(propsDoForm) {
                     ...values,
                     [name]: value,
                 });
+            },
+            clearForm() {
+                setValues({});
             }
         }   
     }
@@ -23,7 +26,7 @@ function useForm(propsDoForm) {
 export default function RegisterVideo() {
     const [formVisivel, setFormVisivel] = useState(false);
     const formCadastro = useForm({
-        initialValues: { titulo:"Frost", url:"https://youtube" }
+        initialValues: { titulo:"", url:"" }
     });
     return(
         <StyledRegisterVideo>
@@ -34,9 +37,11 @@ export default function RegisterVideo() {
                 ? (
                     <form onSubmit={(e) => {
                         e.preventDefault();
+                        setFormVisivel(false)
+                        formCadastro.clearForm();
                     }}>
                     <div>
-                        <button className="close-modal" onClick={()=> setFormVisivel(false)}>
+                        <button type="button" className="close-modal" onClick={()=> setFormVisivel(false)}>
                             x
                         </button>
                         <input 
